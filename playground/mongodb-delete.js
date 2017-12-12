@@ -33,6 +33,5 @@ MongoClient.connect('mongodb://localhost:27017/Todos', (err, client) => {
         console.log(result);
     })
 
-    //
     //client.close();
 });
