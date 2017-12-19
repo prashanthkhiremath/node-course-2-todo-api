@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 
 let db = {
     localhost: 'mongodb://localhost:27017/TodoApp',
-    mlab: 'mongodb://mepraash:amma@143@ds149268.mlab.com:49268/todoapp'
+    mlab: 'mongodb://mepraash:amma@143@ds161316.mlab.com:61316/todosapp'
   };
 
 mongoose.connect(db.mlab || db.localhost,{
