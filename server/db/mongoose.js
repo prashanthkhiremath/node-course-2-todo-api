@@ -7,11 +7,11 @@ let db = {
     mlab: 'mongodb://mepraash:12345678@ds161316.mlab.com:61316/todosapp'
   };
 
-  mongoose.connect( process.env.PORT ? db.mlab : db.localhost,{
+  mongoose.connect( process.env.MONGODB_URI,{
     useMongoClient: true
   });
 // mongoose.connect(db.mlab || db.localhost,{
 //     useMongoClient: true
 // });
 
-module.exports = {mongoose}; 
+module.exports = {mongoose};    
