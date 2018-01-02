@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-let db = {
-    localhost: 'mongodb://localhost:27017/TodoApp',
-    mlab: 'mongodb://mepraash:12345678@ds161316.mlab.com:61316/todosapp'
-  };
+// let db = {
+//     localhost: 'mongodb://localhost:27017/TodoApp',
+//     mlab: 'mongodb://mepraash:12345678@ds161316.mlab.com:61316/todosapp'
+//   };
 
   mongoose.connect( process.env.MONGODB_URI,{
     useMongoClient: true
