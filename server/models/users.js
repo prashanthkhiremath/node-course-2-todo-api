@@ -1,7 +1,9 @@
+
 const mongoose = require('mongoose');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const _ = require('lodash');
 
 var UserSchema = new mongoose.Schema({
     email: {
@@ -34,12 +36,21 @@ var UserSchema = new mongoose.Schema({
     usePushEach:true
 });
 
+UserSchema.methods.toJSON = function() {
+    var user = this;
+    var userObject = user.toObject();// it is responsible for taking mongoose variable user and coverting it into regular object where only properties exsists on the document
+
+    return _.pick(userObject, ['_id','email']);
+}
+
+
+
 UserSchema.methods.generateAuthToken = function () {
     //this represnts individual document
     var user = this;
     var access = 'auth';
     var token = jwt.sign({_id: user._id.toHexString(), access},'abc123').toString();
-
+    
     user.tokens.push({access,token});
 
     return user.save().then(() => {
